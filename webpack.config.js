@@ -15,8 +15,13 @@ const path = require('path');
  * Create webpack config
  */
 
+// Cada page tiene que tener un entryPoint con su nombre y el path del
+// archivo del client. Si la page está creada en /app/pages/clase, entonces
+// la propiedad que tenemos que agregar a este objeto debe llevar el nombre 
+// 'clase'.
+// ESTO ES TODO LO QUE VAMOS A TOCAR DE WEBPACK!!
 const entrypoints = {
-  
+    // clase: 'path to client js'
 };
 
 const generateLegacyBundles = entryPoints => Object.keys(entryPoints).reduce((accumulator, entrypointName) => {
