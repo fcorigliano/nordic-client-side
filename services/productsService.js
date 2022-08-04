@@ -5,6 +5,7 @@
  * 
  * Comando para correr el test: `npm run test:unit:watch products-service`
  */
+const normalizer = require('./transforms/normalizer');
 const restclient = require('nordic/restclient')({
   timeout: 5000,
   baseURL: 'https://api.mercadolibre.com'
@@ -13,8 +14,8 @@ const restclient = require('nordic/restclient')({
 class ProductsService { 
   static getProducts(siteId, name, limit){
     return restclient.get(`/sites/${siteId}/search?q=${name}&limit=${limit}`)
-      .then(response => response.data.results)
-      .catch(err => []);
+      .then(response => normalizer(response.data.results))
+      .catch(err => ([]));
   }
 }
 
