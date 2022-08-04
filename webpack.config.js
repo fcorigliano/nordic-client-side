@@ -22,6 +22,7 @@ const path = require('path');
 // ESTO ES TODO LO QUE VAMOS A TOCAR DE WEBPACK!!
 const entrypoints = {
     // clase: 'path to client js'
+    products: './app/client/products.js'
 };
 
 const generateLegacyBundles = entryPoints => Object.keys(entryPoints).reduce((accumulator, entrypointName) => {
