@@ -8,8 +8,10 @@ const imagesPrefix = config.assets.prefix;
 
 
 exports.fetchProducts = function fetchProducts(req, res, next) {
+  const { siteId } = req.platform;
+  const { name, limit, offset } = req.query;
     Service.getProducts(
-        req.platform.siteId, 'Samsung', 10)
+        siteId, name, limit, offset)
             .then(response => { res.locals.productList = response 
             next()
     })
@@ -26,6 +28,7 @@ exports.render = function render(req, res) {
   )
 
   res.render(ProductList, {
+    productList: res.locals.productList,
     translations: req.translations,
     imagesPrefix,
   }, {

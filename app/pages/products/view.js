@@ -24,10 +24,12 @@ function View(props) {
       .get("/get-products", {
         params: {
           name: "tablet",
+          limit: 10
         },
       })
       .then(res => setProducts(res.data));
   }, []);
+
 
   return (
     <>

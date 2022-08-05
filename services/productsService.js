@@ -12,8 +12,8 @@ const restclient = require('nordic/restclient')({
 });
 
 class ProductsService { 
-  static getProducts(siteId, name, limit){
-    return restclient.get(`/sites/${siteId}/search?q=${name}&limit=${limit}`)
+  static getProducts(siteId, name, limit, offset){
+    return restclient.get(`/sites/${siteId}/search?q=${name}&limit=${limit}&offset=${offset}`)
       .then(response => normalizer(response.data.results))
       .catch(err => ([]));
   }
