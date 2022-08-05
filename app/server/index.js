@@ -17,6 +17,7 @@ require('../../mocks');
  */
 const claseRoute = require('../pages/clase');
 const products = require('../pages/products');
+const productList = require('../pages/productList');
 
 /**
  * Use global middlewares
@@ -35,6 +36,7 @@ router.get('/', (req, res) => res.redirect(`${config.ragnar.basePath}products`))
  */
 router.use('/clase', claseRoute);
 router.use('/products', products);
+router.use('/productList', productList);
 
 /**
  * Expose router

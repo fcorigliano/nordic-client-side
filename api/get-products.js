@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     const { name, limit } = req.query; // query es una propiedad propia de express
     const { siteId } = req.platform; // platform es una propiedad que se le agrega al objeto req gracias a ragnar (que tiene un middleware)
 
-    Service.getProducts(siteId, 'tablet', 10)
+    Service.getProducts(siteId, name, limit)
         .then(response => res.json(response))
         .catch(err => []);
 
